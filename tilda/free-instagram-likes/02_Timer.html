@@ -2,9 +2,10 @@
 <!--    discription: count 5 min for open send order form    -->
 
 <script>
-    let id_order_form =  'rec859596339'
+    let class_name_order_form =  'uc-order_pop'
+    let elemet_order_form = document.getElementsByClassName(class_name_order_form)[0]
 
-    document.addEventListener('DOMContentLoaded' , function() {
+    window.onload =  function() {
         $.ajax({
         	url: "https://youtikinsback.su/php/counter.php",
         	dataType: "json",
@@ -28,14 +29,14 @@
                 		$('.t-popup input[name="verify"]').val(data.response.verify);
                 	}
                 });
-                const element = document.getElementById(id_order_form).querySelector('.t-popup');
+                const element = elemet_order_form.querySelector('.t-popup');
                 element.classList.add('t-popup_show');
                 element.style.display = 'block';
             }
         }
     
         function reseter(callback) {
-            const element = document.getElementById(id_order_form).querySelector('.t-popup');
+            const element = elemet_order_form.querySelector('.t-popup');
             element.addEventListener('click', function (event) {
                 if (!event.composedPath().includes(element.querySelector('.t-popup__container'))) {
                     callback();
@@ -93,7 +94,7 @@
         };
         
         window.timer(window, 300, counter, reseter);
-    });
+    }
 </script>
 
 

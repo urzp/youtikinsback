@@ -7,7 +7,7 @@
     let active_button = 1;
     setInterval(function(){ active_button = 1 },2000);//пауза кнопка
     
-    $(document).ready(function () {
+    window.onload = function () {
       const self = {
         time: 2, // время прокрутки в секундах
         ob: 5, // количество оборотов
@@ -118,7 +118,7 @@
       self.render();
     
       $('.wheel_button').on('click', self.click);
-    });
+    }
 
 
     async function sendPlay(sessionToken){
@@ -137,4 +137,4 @@
         })
         return await response.json();
     }
-    </script>
+</script>
