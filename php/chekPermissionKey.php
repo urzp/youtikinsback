@@ -18,7 +18,7 @@ if($isCheckPage){
     $sessionToken = $_POST['sessionToken'];
     $permissionKey = $_POST['permissionKey'];
 
-    $sql ="SELECT * from `freeOrdersTimer` WHERE `sessionToken` = '$sessionToken' AND  `permissionKey` = '$permissionKey' AND `checked` = '' ";
+    $sql ="SELECT * from `freeOrdersTimer_youtikin` WHERE `sessionToken` = '$sessionToken' AND  `permissionKey` = '$permissionKey' AND `checked` = '' ";
 
     $result = $mysql_2 -> query($sql);
     $result = $result -> fetch_assoc();
@@ -27,7 +27,7 @@ if($isCheckPage){
         $deny_order = true;
         $_POST['usedKey'] = 'fail';
     }else{
-        $sql = "UPDATE `freeOrdersTimer` SET `checked` = 'true' WHERE `sessionToken` = '$sessionToken' AND  `permissionKey` = '$permissionKey'";
+        $sql = "UPDATE `freeOrdersTimer_youtikin` SET `checked` = 'true' WHERE `sessionToken` = '$sessionToken' AND  `permissionKey` = '$permissionKey'";
         $mysql_2 -> query($sql);
         $_POST['usedKey'] = 'sucsses';
     }
