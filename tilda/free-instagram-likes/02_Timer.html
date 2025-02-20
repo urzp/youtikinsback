@@ -1,0 +1,123 @@
+<!--    name_file: 02_Timer.html      -->
+<!--    discription: count 5 min for open send order form    -->
+
+<script>
+    let id_order_form =  'rec859596339'
+
+    document.addEventListener('DOMContentLoaded' , function() {
+        $.ajax({
+        	url: "https://youtikinsback.su/php/counter.php",
+        	dataType: "json",
+        	success: function(data){
+        		$('.t-popup input[name="rand"]').val(data.response.rand);
+        		$('.t-popup input[name="endtime"]').val(data.response.time);
+        	}
+        });
+
+        function counter([minutes, seconds], show) {
+            document.getElementById('timer').style.display = 'flex';
+            document.getElementById('timer-minutes').innerHTML = minutes;
+            document.getElementById('timer-seconds').innerHTML = seconds;
+            if (show) {
+                $.ajax({
+                    type: "POST",
+                	url: "https://youtikinsback.su/php/counter.php",
+                	dataType: "json",
+                	data: {'verify': true},
+                	success: function(data){
+                		$('.t-popup input[name="verify"]').val(data.response.verify);
+                	}
+                });
+                const element = document.getElementById(id_order_form).querySelector('.t-popup');
+                element.classList.add('t-popup_show');
+                element.style.display = 'block';
+            }
+        }
+    
+        function reseter(callback) {
+            const element = document.getElementById(id_order_form).querySelector('.t-popup');
+            element.addEventListener('click', function (event) {
+                if (!event.composedPath().includes(element.querySelector('.t-popup__container'))) {
+                    callback();
+                    setTimeout(function () {
+                        element.querySelector('.t-form__successbox').style.innerHTML = '';
+                        element.querySelector('.t-form__successbox').style.display = 'none';
+                        element.querySelector('.t-form__inputsbox').classList.remove('t702__inputsbox_hidden');
+                    }, 500);
+                }
+            });
+        }
+        
+        
+    
+        window.timer = function (w, s, c, r) {
+            const o = {
+                p: null,
+                s: s,
+                f: function () {
+                    const m = w.Math.floor(o.s / 60);
+                    const s = o.s % 60;
+                    return [(m < 10 ? '0' : '') + m, (s < 10 ? '0' : '') + s];
+                },
+                c: function () {
+                    c(o.f(), o.s <= 0);
+                },
+                m: function () {
+                    o.u();
+                    o.p = w.setInterval(function () {
+                        if (o.s <= 0) {
+                            o.u();
+                        } else {
+                            o.s--;
+                            o.c();
+                        }
+                    }, 1000);
+                },
+                u: function () {
+                    w.clearInterval(o.p);
+                },
+                l: function () {
+                    r(o.r);
+                    o.c();
+                    o.m();
+                },
+                r: function () {
+                    o.s = s;
+                    o.c();
+                    o.m();
+                },
+            };
+            w.addEventListener('load', o.l);
+            w.addEventListener('focus', o.m);
+            w.addEventListener('blur', o.u);
+        };
+        
+        window.timer(window, 300, counter, reseter);
+    });
+</script>
+
+
+<style>
+    .simply-countdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Arial', sans-serif;
+        font-size: 120px;
+    }
+
+    .simply-countdown > .simply-section {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+</style>
+
+<div class="simply-countdown" id="timer" style="display: none">
+    <div class="simple-section" id="timer-minutes"></div>
+    <div class="simple-section">:</div>
+    <div class="simple-section" id="timer-seconds"></div>
+</div>

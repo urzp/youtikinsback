@@ -1,0 +1,10 @@
+<!--    name_file: 01_access_link.html      -->
+<!--    discription:no access to the submission form    -->
+
+<script>
+    css_blok_name = 'uc-send-link'
+    window.onload = function(){
+        $(`.${css_blok_name} .t-submit`).attr({'onclick':'event.stopPropagation()'})
+        $(`.${css_blok_name} .t-submit`).css({'cursor':'default'})
+    }
+</script>
