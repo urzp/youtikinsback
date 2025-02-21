@@ -1,6 +1,6 @@
 <?php
 
-$sql = "SELECT * FROM `config`";
+$sql = "SELECT * FROM `config_youtikin`";
 $sql_result = $mysql -> query($sql);
 
 foreach($sql_result as $item){

@@ -62,7 +62,7 @@ if( isset($sameLink_id)){
 
 if(isset($_POST['url_page'])){
     $url = $_POST['url_page'];
-    $sql ="SELECT * from `pages_free` WHERE `page` = '$url'";
+    $sql ="SELECT * from `pages_free_youtikin` WHERE `page` = '$url'";
     $result = $mysql -> query($sql);
     $result = $result -> fetch_assoc();
     if(isset($result['id_provider'])){
