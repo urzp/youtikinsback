@@ -3,12 +3,12 @@
 
 <script>
     let id_interval, permissionKey 	
-    window.onload = function() {
+    $( window ).on( "load", function() {
         let sessionToken = setSession()
         localStorage.setItem('sessionToken', sessionToken);
         sendCount(sessionToken)
         id_interval = setInterval(requestPermission, 10000)
-    } 
+    })
     
     async function requestPermission(){
         let responce  = await sendCount(localStorage.getItem('sessionToken'))
@@ -30,7 +30,7 @@
     };
     
     async function sendCount(sessionToken){
-        let url = 'https://youtikinsback.su/php/countTimePermission.php'
+        let url = `${base_url}/php/countTimePermission.php`
         content = {
             sessionToken
         }

@@ -1,0 +1,15 @@
+<!--    name_file: 07_hide_no_wait_pop.html      -->
+<!--    discription: hide after some time popap  -->
+
+<script>
+    let time_wait = 240 //Time for wait sec
+    let css_block_name = 'uc-no_waiting_pop' //BLOCK CSS CLASS NAME
+
+    time_wait = time_wait * 1000
+    $( window ).on( "load", function(){      
+        setTimeout(function() {
+            $(`.${css_block_name}`).style.display = 'none';
+        }, time_wait);
+    });
+
+</script>

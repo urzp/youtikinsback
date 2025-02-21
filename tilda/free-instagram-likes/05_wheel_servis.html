@@ -7,7 +7,7 @@
     let active_button = 1;
     setInterval(function(){ active_button = 1 },2000);//пауза кнопка
     
-    window.onload = function () {
+    $( window ).on( "load", function () {
       const self = {
         time: 2, // время прокрутки в секундах
         ob: 5, // количество оборотов
@@ -118,11 +118,11 @@
       self.render();
     
       $('.wheel_button').on('click', self.click);
-    }
+    })
 
 
     async function sendPlay(sessionToken){
-        let url = 'https://youtikinsback.su/php/playwheel.php'
+        let url = `${base_url}/php/playwheel.php`
         content = {
             sessionToken
         }

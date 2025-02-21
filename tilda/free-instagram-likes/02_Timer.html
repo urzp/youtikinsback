@@ -2,12 +2,14 @@
 <!--    discription: count 5 min for open send order form    -->
 
 <script>
-    let class_name_order_form =  'uc-order_pop'
+    
+    let class_name_order_form = 'uc-order_pop' //BLOCK CSS CLASS NAME
+    
     let elemet_order_form = document.getElementsByClassName(class_name_order_form)[0]
-
-    window.onload =  function() {
+    
+    $( window ).on( "load", function() {
         $.ajax({
-        	url: "https://youtikinsback.su/php/counter.php",
+        	url: `${base_url}/php/counter.php`,
         	dataType: "json",
         	success: function(data){
         		$('.t-popup input[name="rand"]').val(data.response.rand);
@@ -22,7 +24,7 @@
             if (show) {
                 $.ajax({
                     type: "POST",
-                	url: "https://youtikinsback.su/php/counter.php",
+                	url: `${base_url}/php/counter.php`,
                 	dataType: "json",
                 	data: {'verify': true},
                 	success: function(data){
@@ -94,7 +96,7 @@
         };
         
         window.timer(window, 300, counter, reseter);
-    }
+    })
 </script>
 
 
