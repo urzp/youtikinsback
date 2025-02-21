@@ -21,7 +21,7 @@ function noteOrder($data){
     $permissionKey = $data['permissionKey'];
     $usedKey = $_POST['usedKey'];
 
-    $sql = "INSERT INTO `orders_free` 
+    $sql = "INSERT INTO `orders_free_youtikin` 
     (`page`, `name_servis`, `service`, `link`, `quantity`, `quantity_max`, `id_provider`, `provider_msg`, `sessionToken`, `permissionKey`, `usedKey` )
     VALUES
     ('$page', '$name_servis', '$service', '$link', '$quantity', '$quantity_max', '$id_provider', '$result', '$sessionToken', '$permissionKey', '$usedKey')";
@@ -33,7 +33,7 @@ function findSameLink($pause, $link){
     global $mysql;
     $timePause = time() - $pause * 60 * 60;
     $untilDate = date('Y-m-d H:i:s', $timePause);
-    $sql = "SELECT `id` from `orders_free` WHERE `link` = '$link' AND `datetime` > '$untilDate' "; 
+    $sql = "SELECT `id` from `orders_free_youtikin` WHERE `link` = '$link' AND `datetime` > '$untilDate' "; 
     $result = $mysql -> query($sql);
     $result = $result -> fetch_assoc();
     $result = $result['id'];

@@ -8,7 +8,7 @@
     time_wait = time_wait * 1000
     $( window ).on( "load", function(){      
         setTimeout(function() {
-            $(`.${css_block_name}`).style.display = 'none';
+            $(`.${css_block_name}`).fadeOut('slow');
         }, time_wait);
     });
 
