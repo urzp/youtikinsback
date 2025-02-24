@@ -3,11 +3,11 @@
 
 <script>
     
-    let class_name_order_form = 'uc-order_pop' //BLOCK CSS CLASS NAME
-    
-    let elemet_order_form = document.getElementsByClassName(class_name_order_form)[0]
-    
-    $( window ).on( "load", function() {
+    document.addEventListener('DOMContentLoaded' ,  function() {
+
+        let class_name_order_form = 'uc-order_pop' //BLOCK CSS CLASS NAME
+        let elemet_order_form = document.getElementsByClassName(class_name_order_form)[0]
+
         $.ajax({
         	url: `${base_url}/php/counter.php`,
         	dataType: "json",
@@ -51,8 +51,6 @@
             });
         }
         
-        
-    
         window.timer = function (w, s, c, r) {
             const o = {
                 p: null,
@@ -94,6 +92,10 @@
             w.addEventListener('focus', o.m);
             w.addEventListener('blur', o.u);
         };
+
+        window.counter = counter
+        window.reseter = reseter
+
         
         window.timer(window, 300, counter, reseter);
     })
