@@ -5,3 +5,7 @@
 .hiden{
     display: none!important;
 }
+
+.alert-dismissible{
+    display: none!important;
+}
