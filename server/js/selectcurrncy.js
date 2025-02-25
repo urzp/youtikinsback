@@ -1,17 +1,4 @@
 
-let currencies = {
-    ru: 'RUB',
-    en: 'EUR',
-    bp: 'BRL',
-    ar: 'EGP',
-    es: 'EUR',
-    fr: 'EUR',
-    de: 'EUR',
-    id: 'USD',
-    hi: 'USD',
-}
-
-
 document.addEventListener('DOMContentLoaded', function(){
     window.onload = function() { 
         

@@ -1,3 +1,7 @@
 .navbar-languages.component_navbar_dropdown{
     display: none;
 }
+
+.hiden{
+    display: none!important;
+}
