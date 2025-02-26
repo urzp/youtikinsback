@@ -9,3 +9,15 @@
 .alert-dismissible{
     display: none!important;
 }
+
+#dropdown-category-filter-56{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    padding-top: 9px!important;
+    padding-bottom: 9px!important;
+}
+
+#filter-56-title{
+    margin-left: 8px;
+}
