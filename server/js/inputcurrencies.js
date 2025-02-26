@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded',  function(){
 })
 
 function getDataExchange(){
-    fetch('https://api.exchangerate-api.com/v4/latest/RUB')
+    fetch('https://youtikinsback.su/php/getCurrencies.php')
     .then(response => response.json())
     .then(data => {
-        dataExchange = data.rates;
+        dataExchange = data.response;
     })
     .catch(error => {
       console.error('Ошибка:', error);
