@@ -38,6 +38,10 @@
     padding-left: 25px!important;
 }
 
+.services-filter__active-category{
+    display: none!important;
+}
+
 /* #service-table-77 thead tr :nth-child(n+3){
     text-align: right;
 }
@@ -45,3 +49,7 @@
 [data-label="Rate per 1000"], [data-label="Min order"], [data-label="Max order"], .services-list__description .component_button_view {
     text-align: right!important;
 } */
+
+.block-bg{
+    background-color:#e7edf5!important;
+}

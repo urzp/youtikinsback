@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let scr_name = get('name')
     if(!!scr_name) scrollToElement( scr_name.replaceAll('_', " ") )
     roundCurrentAll()
+    menuSameTab()
 })
 
 function get(name){
@@ -45,4 +46,10 @@ function roundCurrent(value){
     val_arr[val_arr.length-1] = point_part
     value = val_arr[0]+','+val_arr[1]
     return value
+}
+
+function menuSameTab(){
+    $('.navbar-nav a').each(function(){
+        $(this).attr({'target':'_self'})
+    })
 }
