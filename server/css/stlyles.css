@@ -10,7 +10,7 @@
     display: none!important;
 }
 
-#dropdown-category-filter-56{
+#dropdown-category-filter-56, #dropdown-category-filter-77{
     display: flex;
     align-items: center;
     column-gap: 5px;
@@ -21,3 +21,27 @@
 #filter-56-title{
     margin-left: 8px;
 }
+
+#service-table-77 thead tr :nth-child(1){
+    display: none;
+}
+
+#service-table-77 thead tr :nth-child(2){
+    padding-left: 25px!important;
+}
+
+[data-label="ID"]{
+    display: none;
+}
+
+[data-label="Service"]{
+    padding-left: 25px!important;
+}
+
+/* #service-table-77 thead tr :nth-child(n+3){
+    text-align: right;
+}
+
+[data-label="Rate per 1000"], [data-label="Min order"], [data-label="Max order"], .services-list__description .component_button_view {
+    text-align: right!important;
+} */
