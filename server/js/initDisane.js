@@ -41,7 +41,7 @@ function roundCurrent(value){
     point_part = val_arr[val_arr.length-1].split(' ')[0]
     let right_sumbol =  val_arr[val_arr.length-1].split(' ')[1]
     point_part = `0.${point_part}`
-    point_part = Number(point_part).toFixed(2).split('.')[1]
+    point_part = Number(point_part).toFixed(4).split('.')[1]
     if(!!right_sumbol) point_part=point_part+' '+right_sumbol
     val_arr[val_arr.length-1] = point_part
     value = val_arr[0]+','+val_arr[1]
