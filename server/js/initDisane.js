@@ -30,13 +30,29 @@ function scrollToElement(content){
 }
 
 function roundCurrentAll(){
-    $('[data-label="Rate per 1000"] span').each(function(){
+    let select 
+    if($('[data-label="Rate per 1000"] span').length==0){
+        select = $('[data-label="Rate per 1000"]')
+    }else{
+        select = $('[data-label="Rate per 1000"] span')
+    }
+    
+    select.each(function(){
         let val = roundCurrent( $(this).text() )
         $(this).text(val)  
     })
 }
 
+function devide(val, dev){
+    let rec = /[0-9/,]+/
+    let result = Number((val.match(rec)[0]).replace(',','.'))/dev
+    result = result.toString().replace('.',',')
+    result = val.split(rec)[0] + result + val.split(rec)[1]
+    return result
+}
+
 function roundCurrent(value){
+    value = devide(value, 1000)
     val_arr = value.split(',')
     point_part = val_arr[val_arr.length-1].split(' ')[0]
     let right_sumbol =  val_arr[val_arr.length-1].split(' ')[1]
