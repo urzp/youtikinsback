@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(!!scr_name) scrollToElement( scr_name.replaceAll('_', " ") )
     roundCurrentAll()
     menuSameTab()
+    goToReg()
 })
 
 function get(name){
@@ -74,4 +75,22 @@ function menuSameTab(){
     $('.navbar-nav a').each(function(){
         $(this).attr({'target':'_self'})
     })
+}
+
+function goToReg(){
+    if($('.block-signin-text__sign-up-link').length>0){
+        let lasLink_arr = document.referrer.split('/')
+        if(lasLink_arr[lasLink_arr.length-1]=='services'){
+            let params = new URLSearchParams(document.location.search); 
+            let value =  params.get('service')
+            if(!!value){
+                value = `service=${value}`
+                window.location.replace(`https://user.youtikins.com/signup?${value}`)
+            }else{
+                return false 
+            }
+        }
+    }else{
+        return false
+    }
 }
