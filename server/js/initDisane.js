@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
 } )
 
 document.addEventListener('DOMContentLoaded', function(){ 
+    headerRatePer()
     let scr_name = get('name')
     if(!!scr_name) scrollToElement( scr_name.replaceAll('_', " ") )
     roundCurrentAll()
@@ -27,6 +28,10 @@ function scrollToElement(content){
         duration: 370,   
         easing: "linear" 
     });  
+}
+
+function headerRatePer(){
+    $('#service-table-77 thead tr th:nth-child(3)').text('Rate per 1')
 }
 
 function roundCurrentAll(){
@@ -53,11 +58,12 @@ function devide(val, dev){
 
 function roundCurrent(value){
     value = devide(value, 1000)
+    value = value.replace('≈','')
     val_arr = value.split(',')
     point_part = val_arr[val_arr.length-1].split(' ')[0]
     let right_sumbol =  val_arr[val_arr.length-1].split(' ')[1]
     point_part = `0.${point_part}`
-    point_part = Number(point_part).toFixed(4).split('.')[1]
+    point_part = Number(point_part).toFixed(5).split('.')[1]
     if(!!right_sumbol) point_part=point_part+' '+right_sumbol
     val_arr[val_arr.length-1] = point_part
     value = val_arr[0]+','+val_arr[1]

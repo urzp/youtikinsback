@@ -1,0 +1,124 @@
+@media (max-width: 990.98px) {
+
+    /* [data-label="ID"] {
+        display:none!important;
+    }
+
+    .table-service::before{
+        display: none!important;
+    }
+
+    #service-tbody tr td:nth-child(2){
+        text-align: center!important;
+    }
+
+    .services-category{
+        text-align: center!important;
+    }
+
+    .services-list__description .component_button_view{
+        text-align: center!important;
+    }
+
+    [data-label="Rate per 1000"], [data-label="Min order"], [data-label="Max order"]{
+        display: flex!important;
+        justify-content: center!important;
+    } */
+
+    #service-tbody tr [data-label]:nth-child(1), #service-tbody tr td:nth-child(4), #service-tbody tr td:nth-child(5) {
+        display:none!important;
+    }
+
+    #service-tbody tr td:nth-child(2)::before{
+        display: none!important;
+    }
+
+    #service-tbody tr td:nth-child(3)::before{
+        display: none!important;
+    }
+
+    /* [data-label="Rate per 1000"]::before{
+        font-weight: 300!important;
+        color: #a4a4a4!important;
+    }  */
+
+    /* [data-label="Rate per 1000"]{
+        display: flex!important;
+        justify-content: center!important;
+    } */
+
+    .services-category{
+        background-color: #e7edf5!important;
+        text-align: left!important;
+    }
+
+    .w-100{
+        word-break: auto-phrase!important;
+    } 
+
+    .w-100 h4{
+        display: flex;
+        column-gap: 10px;
+    }
+
+    #service-tbody tr td:nth-child(2){
+        padding-top: 15px!important;
+        padding-left: 8px!important;
+        text-align: center!important;
+        background-color: #f0f6fb!important;
+        border-top-left-radius: 15px!important;
+        border-top-right-radius: 15px!important;
+        word-break: auto-phrase!important;
+
+        /* white-space: nowrap!important;
+        overflow: hidden!important;
+        text-overflow: ellipsis!important; */
+    }
+
+    #service-tbody tr td:nth-child(3){
+        text-align: center!important;
+        background-color: #f0f6fb!important;
+        padding-top: 0px!important;
+        padding-bottom: 0px!important;
+        min-height: 20px!important;
+        font-weight: 600!important;
+        /* padding-left: 25px!important;
+        padding-right: 25px!important; */
+        /* border-bottom-left-radius: 15px!important;
+        border-bottom-right-radius: 15px!important; */
+    }
+
+    .services-list__description{
+        background-color: transparent !important;
+        /* transform: translateY(-47px)!important; */
+        /* margin-bottom: -30px!important; */
+        text-align: center!important;
+        background-color: #f0f6fb!important;
+        border-bottom-left-radius: 15px!important;
+        border-bottom-right-radius: 15px!important;
+        padding-bottom: 15px!important;
+    }
+
+    #service-tbody>tr{
+        background-color: #e7edf5!important;
+        padding-bottom: 15px!important;
+    }
+
+    .w-100 h4{
+        justify-content: center!important;
+    }
+
+    .w-100.dropdown-toggle{
+        text-align: center!important;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .services-filters .dropdown-menu{
+        min-width: -webkit-fill-available!important;
+    }
+
+}
