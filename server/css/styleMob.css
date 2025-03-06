@@ -1,31 +1,88 @@
-#block_139{
-    display:none!important;
+@media (max-width: 990.98px) {
+
+    .data-label-Favorite, 
+    .data-label-ID, 
+    .data-label-Min,
+    .data-label-Max {
+        display:none!important;
+    }
+
+    .data-label-Service::before,
+    .data-label-Rate::before{
+        display: none!important;
+    }
+
+    .services-category{
+        background-color: #e7edf5!important;
+        text-align: left!important;
+    }
+
+    .w-100{
+        word-break: auto-phrase!important;
+    } 
+
+    .w-100 h4{
+        display: flex;
+        column-gap: 10px;
+    }
+
+    .w-100 h4 .align-middle{
+        text-align: center;
+        width: fit-content!important;
+    }
+
+    .data-label-Service {
+        padding-top: 15px!important;
+        padding-left: 8px!important;
+        border: none!important;
+        text-align: center!important;
+        background-color: #f0f6fb!important;
+        border-top-left-radius: 15px!important;
+        border-top-right-radius: 15px!important;
+        word-break: auto-phrase!important;
+    }
+    
+
+    .data-label-Rate{
+        text-align: center!important;
+        background-color: #f0f6fb!important;
+        border: none!important;
+        padding-top: 0px!important;
+        padding-bottom: 0px!important;
+        min-height: 20px!important;
+        font-weight: 600!important;
+    }
+
+    .services-list__description{
+        background-color: transparent !important;
+        text-align: center!important;
+        border: none!important;
+        background-color: #f0f6fb!important;
+        border-bottom-left-radius: 15px!important;
+        border-bottom-right-radius: 15px!important;
+        padding-bottom: 15px!important;
+    }
+
+    #service-tbody>tr{
+        background-color: #e7edf5!important;
+        padding-bottom: 15px!important;
+    }
+
+    .w-100 h4{
+        justify-content: center!important;
+    }
+
+    .w-100.dropdown-toggle{
+        text-align: center!important;
+    }
+
 }
+
 
 @media (max-width: 767.98px) {
 
-    #block_139{
-        display:flex!important;
-    }
-
-    #block_139 .text-block__image{
-        position: fixed!important;
-        bottom: 10px!important;
-        right: 10px!important;
-        z-index: 1000!important;      
-
-        backdrop-filter: blur(5px)!important; 
-        background-color: #ffffff38;
-        margin: 0px!important; 
-        border-radius: 35px!important; 
-        width: 60px!important; 
-        height: 60px!important; 
-        padding: 6px!important; 
-        max-width: 60px!important; 
-    }
-
-    #block_139 .block-bg{
-        background-color: transparent !important;
+    .services-filters .dropdown-menu{
+        min-width: -webkit-fill-available!important;
     }
 
 }
