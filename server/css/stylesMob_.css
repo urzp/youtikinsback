@@ -1,51 +1,19 @@
 @media (max-width: 990.98px) {
+    #service-tbody:not(.rended){
+        visibility: hidden;
+    }
 
-    /* [data-label="ID"] {
+    .data-label-Favorite, 
+    .data-label-ID, 
+    .data-label-Min,
+    .data-label-Max {
         display:none!important;
     }
 
-    .table-service::before{
+    .data-label-Service::before,
+    .data-label-Rate::before{
         display: none!important;
     }
-
-    #service-tbody tr td:nth-child(2){
-        text-align: center!important;
-    }
-
-    .services-category{
-        text-align: center!important;
-    }
-
-    .services-list__description .component_button_view{
-        text-align: center!important;
-    }
-
-    [data-label="Rate per 1000"], [data-label="Min order"], [data-label="Max order"]{
-        display: flex!important;
-        justify-content: center!important;
-    } */
-
-    #service-tbody tr [data-label]:nth-child(1), #service-tbody tr td:nth-child(4), #service-tbody tr td:nth-child(5) {
-        display:none!important;
-    }
-
-    #service-tbody tr td:nth-child(2)::before{
-        display: none!important;
-    }
-
-    #service-tbody tr td:nth-child(3)::before{
-        display: none!important;
-    }
-
-    /* [data-label="Rate per 1000"]::before{
-        font-weight: 300!important;
-        color: #a4a4a4!important;
-    }  */
-
-    /* [data-label="Rate per 1000"]{
-        display: flex!important;
-        justify-content: center!important;
-    } */
 
     .services-category{
         background-color: #e7edf5!important;
@@ -66,38 +34,32 @@
         width: fit-content!important;
     }
 
-    #service-tbody tr td:nth-child(2){
+    .data-label-Service {
         padding-top: 15px!important;
         padding-left: 8px!important;
+        border: none!important;
         text-align: center!important;
         background-color: #f0f6fb!important;
         border-top-left-radius: 15px!important;
         border-top-right-radius: 15px!important;
         word-break: auto-phrase!important;
-
-        /* white-space: nowrap!important;
-        overflow: hidden!important;
-        text-overflow: ellipsis!important; */
     }
+    
 
-    #service-tbody tr td:nth-child(3){
+    .data-label-Rate{
         text-align: center!important;
         background-color: #f0f6fb!important;
+        border: none!important;
         padding-top: 0px!important;
         padding-bottom: 0px!important;
         min-height: 20px!important;
         font-weight: 600!important;
-        /* padding-left: 25px!important;
-        padding-right: 25px!important; */
-        /* border-bottom-left-radius: 15px!important;
-        border-bottom-right-radius: 15px!important; */
     }
 
     .services-list__description{
         background-color: transparent !important;
-        /* transform: translateY(-47px)!important; */
-        /* margin-bottom: -30px!important; */
         text-align: center!important;
+        border: none!important;
         background-color: #f0f6fb!important;
         border-bottom-left-radius: 15px!important;
         border-bottom-right-radius: 15px!important;
