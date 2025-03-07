@@ -22,8 +22,7 @@
     } 
 
     .w-100 h4{
-        display: flex;
-        column-gap: 10px;
+        text-align: center!important;
     }
 
     .w-100 h4 .align-middle{
