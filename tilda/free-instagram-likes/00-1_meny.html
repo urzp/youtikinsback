@@ -1,0 +1,155 @@
+<!--    name_file: 00-1_meny.hyml     -->
+<!--    discription: langujes menu    -->
+
+<div class="navbar-languages component_navbar_dropdown">
+    <div class="navbar-dropdown">
+        <div class="navbar-dropdown__name navbar-dropdown__toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="false">English</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        <ul class="navbar-dropdown__container dropdown-menu">
+            <li class="navbar-dropdown__item"><a href="en" >English</a></li>
+            <li class="navbar-dropdown__item"><a href="ru" >Russian</a></li>
+            <li class="navbar-dropdown__item"><a href="bp" >Portuguese (Brazil)</a></li>
+            <li class="navbar-dropdown__item"><a href="ar" >Arabic</a></li>
+            <li class="navbar-dropdown__item"><a href="es" >Spanish</a></li>
+            <li class="navbar-dropdown__item"><a href="fr" >French</a></li>
+            <li class="navbar-dropdown__item"><a href="de" >German</a></li>
+            <li class="navbar-dropdown__item"><a href="id" >Indonesian</a></li>
+            <li class="navbar-dropdown__item"><a href="ja" >Japanese</a></li>
+            <li class="navbar-dropdown__item"><a href="hi" >Hindi</a></li>
+        </ul>
+    </div>
+</div>
+
+<style>
+
+    .t456__maincontainer{
+        display: flex;
+        align-items: center;
+    }
+
+    .t456__leftwrapper{
+        width: 125px!important;
+    }
+
+    .navbar-languages.component_navbar_dropdown{
+        padding-left: 12px;
+        padding-right: 12px;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        font-stretch: normal;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .navbar-dropdown{
+        width: 100px;
+        position: relative;
+        display: inline-block;
+        margin-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+    }
+
+    .navbar-dropdown__name {
+        white-space: nowrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #333;
+        background: #f0f6fb;
+        border-color: #00000000;
+        border-style: solid;
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        padding-top: 12px;
+        padding-bottom: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        font-size: null;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .navbar-dropdown__toggle:after {
+        display: inline-block;
+        content: ' ';
+        background-image: url('https://static.tildacdn.com/tild6533-3533-4932-b233-303638313238/fa-angle-down.svg');
+        margin-left: 12px;
+        width: 10px;
+        height: 20px;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .navbar-dropdown__container.dropdown-menu{
+        position: absolute;
+        background: #f0f6fb;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 100px;
+        padding: 0px;
+        padding-left: 0px!important;
+        font-size: 1rem;
+        text-align: left;
+        list-style: none;
+    }
+
+    .navbar-languages.component_navbar_dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar-dropdown__item a{
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+        color: #333!important;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        cursor: pointer;
+    }
+
+
+</style>
+
+<script>
+    $( window ).on( "load", async function(){
+        await $('.navbar-languages').clone().insertAfter($( ".t456__leftwrapper" ))
+        $($('.navbar-languages')[1]).remove()
+        init_languges()
+    })
+
+    function init_languges(){
+        let url = document.URL
+        url = url.replace('https://','')
+        let url_arr = url.split('/')
+        let page_language = url_arr[1]
+        let baseSate = url_arr[0]
+        let page = url_arr[2] //url_arr[2].split('?')[0]
+        let language
+        $('.navbar-languages .navbar-dropdown__item').each(function(){
+            if( $(this).find('a').attr('href')==page_language){
+                language = $(this).find('a').text()
+                $(this).fadeOut()
+                $('.navbar-dropdown__name.navbar-dropdown__toggle').text(language)
+            }
+        })
+
+        $('.navbar-languages .navbar-dropdown__item').each(function(){
+            let lang = $(this).find('a').attr('href')
+            let ref = `https://${baseSate}/${lang}/${page}`
+            $(this).find('a').attr({'href':ref})
+        })
+        
+    }
+</script>
