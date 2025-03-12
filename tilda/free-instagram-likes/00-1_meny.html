@@ -119,13 +119,21 @@
         cursor: pointer;
     }
 
+    @media (max-width: 980px){
+        
+        .navbar-dropdown{
+            width: 100%;
+        }
+
+    }
 
 </style>
 
 <script>
     $( window ).on( "load", async function(){
         await $('.navbar-languages').clone().insertAfter($( ".t456__leftwrapper" ))
-        $($('.navbar-languages')[1]).remove()
+        await $('.navbar-languages').clone().insertBefore($( ".t282__menu" ))
+        $($('.navbar-languages')[2]).remove()
         init_languges()
     })
 
@@ -149,6 +157,14 @@
             let lang = $(this).find('a').attr('href')
             let ref = `https://${baseSate}/${lang}/${page}`
             $(this).find('a').attr({'href':ref})
+        })
+
+        $('.navbar-dropdown').click( function(){
+            if( $('.dropdown-menu').hasClass('show') ){
+                $('.dropdown-menu').removeClass('show')
+            }else{
+                $('.dropdown-menu').addClass('show')
+            }
         })
         
     }
