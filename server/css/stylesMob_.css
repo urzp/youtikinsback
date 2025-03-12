@@ -57,13 +57,11 @@
     } 
 
     .w-100 h4{
-        display: flex;
-        column-gap: 10px;
+        text-align: center;
     }
 
     .w-100 h4 .align-middle{
         text-align: center;
-        width: fit-content!important;
     }
 
     #service-tbody tr td:nth-child(2){
