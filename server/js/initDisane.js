@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
 } )
 
 document.addEventListener('DOMContentLoaded', function(){ 
+    initClasses()
     headerRatePer()
     let scr_name = get('name')
     if(!!scr_name) scrollToElement( scr_name.replaceAll('_', " ") )
@@ -32,10 +33,10 @@ function scrollToElement(content){
 }
 
 function headerRatePer(){
-    $('#service-table-77 thead tr th:nth-child(3)').text('Rate per 1')
+    $('.header-label-Rate').text('Rate per 1')
 }
 
-function roundCurrentAll(){
+async function roundCurrentAll(){
     let select 
     if($('[data-label="Rate per 1000"] span').length==0){
         select = $('[data-label="Rate per 1000"]')
@@ -43,10 +44,12 @@ function roundCurrentAll(){
         select = $('[data-label="Rate per 1000"] span')
     }
     
-    select.each(function(){
+    await select.each(function(){
         let val = roundCurrent( $(this).text() )
         $(this).text(val)  
     })
+
+    $('#service-tbody').addClass('rended')
 }
 
 function devide(val, dev){
@@ -92,5 +95,54 @@ function goToReg(){
         }
     }else{
         return false
+    }
+}
+
+function isLogin(){
+    if( $(`.component-navbar-nav-link__navbar-private:contains("Logout")`).length > 0 ){
+        return true
+    }else{
+        return false
+    }
+}
+
+function initClasses(){
+    if(isLogin()){ 
+
+        $('body').addClass('login') 
+
+        $('.services-list__table .table th:nth-child(2)').addClass('header-label-ID')
+        $('.services-list__table .table th:nth-child(3)').addClass('header-label-Service')
+        $('.services-list__table .table th:nth-child(4)').addClass('header-label-Rate')
+        $('.services-list__table .table th:nth-child(5)').addClass('header-label-Min')
+        $('.services-list__table .table th:nth-child(6)').addClass('header-label-Max')
+        $('.services-list__table .table th:nth-child(7)').addClass('header-label-Description')
+
+        $('#service-tbody tr [data-label]:nth-child(1)').addClass('data-label-Favorite') 
+        $('#service-tbody tr [data-label]:nth-child(2)').addClass('data-label-ID')  
+        $('#service-tbody tr [data-label]:nth-child(3)').addClass('data-label-Service') 
+        $('#service-tbody tr [data-label]:nth-child(4)').addClass('data-label-Rate') 
+        $('#service-tbody tr [data-label]:nth-child(5)').addClass('data-label-Min') 
+        $('#service-tbody tr [data-label]:nth-child(6)').addClass('data-label-Max') 
+        $('#service-tbody tr [data-label]:nth-child(7)').addClass('data-label-OrderBtn') 
+
+    }else{ 
+
+        $('body').addClass('logout') 
+
+        $('.services-list__table .table th:nth-child(1)').addClass('header-label-ID')
+        $('.services-list__table .table th:nth-child(2)').addClass('header-label-Service')
+        $('.services-list__table .table th:nth-child(3)').addClass('header-label-Rate')
+        $('.services-list__table .table th:nth-child(4)').addClass('header-label-Min')
+        $('.services-list__table .table th:nth-child(5)').addClass('header-label-Max')
+        $('.services-list__table .table th:nth-child(6)').addClass('header-label-Description')
+
+        $('#service-tbody tr [data-label]:nth-child(1)').addClass('data-label-ID')  
+        $('#service-tbody tr [data-label]:nth-child(2)').addClass('data-label-Service') 
+        $('#service-tbody tr [data-label]:nth-child(3)').addClass('data-label-Rate') 
+        $('#service-tbody tr [data-label]:nth-child(4)').addClass('data-label-Min') 
+        $('#service-tbody tr [data-label]:nth-child(5)').addClass('data-label-Max') 
+        $('#service-tbody tr [data-label]:nth-child(6)').addClass('data-label-OrderBtn') 
+        
     }
 }
