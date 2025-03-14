@@ -4,18 +4,23 @@
 <div class="navbar-languages component_navbar_dropdown">
     <div class="navbar-dropdown">
         <div class="navbar-dropdown__name navbar-dropdown__toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="false">English</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-        <ul class="navbar-dropdown__container dropdown-menu">
-            <li class="navbar-dropdown__item"><a href="en" >English</a></li>
-            <li class="navbar-dropdown__item"><a href="ru" >Russian</a></li>
-            <li class="navbar-dropdown__item"><a href="bp" >Portuguese (Brazil)</a></li>
-            <li class="navbar-dropdown__item"><a href="ar" >Arabic</a></li>
-            <li class="navbar-dropdown__item"><a href="es" >Spanish</a></li>
-            <li class="navbar-dropdown__item"><a href="fr" >French</a></li>
-            <li class="navbar-dropdown__item"><a href="de" >German</a></li>
-            <li class="navbar-dropdown__item"><a href="id" >Indonesian</a></li>
-            <li class="navbar-dropdown__item"><a href="ja" >Japanese</a></li>
-            <li class="navbar-dropdown__item"><a href="hi" >Hindi</a></li>
-        </ul>
+        <div class="wrap_list_box">
+            <ul class="navbar-dropdown__container dropdown-menu">
+                <div class="scroll_list">
+                    <li class="navbar-dropdown__item"><a href="en" >English</a></li>
+                    <li class="navbar-dropdown__item"><a href="ru" >Russian</a></li>
+                    <li class="navbar-dropdown__item"><a href="bp" >Portuguese (Brazil)</a></li>
+                    <li class="navbar-dropdown__item"><a href="ar" >Arabic</a></li>
+                    <li class="navbar-dropdown__item"><a href="es" >Spanish</a></li>
+                    <li class="navbar-dropdown__item"><a href="fr" >French</a></li>
+                    <li class="navbar-dropdown__item"><a href="de" >German</a></li>
+                    <li class="navbar-dropdown__item"><a href="id" >Indonesian</a></li>
+                    <li class="navbar-dropdown__item"><a href="ja" >Japanese</a></li>
+                    <li class="navbar-dropdown__item"><a href="hi" >Hindi</a></li>
+                </div>
+            </ul>
+            <div class="closePanel"></div>
+        </div>
     </div>
 </div>
 
@@ -28,6 +33,11 @@
 
     .t456__leftwrapper{
         width: 125px!important;
+    }
+
+    #rec869034567{
+        padding-top: 5px!important;
+        padding-bottom: 5px!important;
     }
 
     .navbar-languages.component_navbar_dropdown{
@@ -47,7 +57,6 @@
         width: 100px;
         position: relative;
         display: inline-block;
-        margin-top: 4px;
         padding-bottom: 4px;
         box-sizing: border-box;
     }
@@ -65,8 +74,8 @@
         border-right-width: 1px;
         border-top-width: 1px;
         border-bottom-width: 1px;
-        padding-top: 12px;
-        padding-bottom: 6px;
+        padding-top: 0px;
+        padding-bottom: 15px;
         padding-left: 12px;
         padding-right: 12px;
         border-top-left-radius: 12px;
@@ -113,47 +122,80 @@
         cursor: pointer;
     }
 
-    @media (min-width: 980.98px){
-        .navbar-languages.component_navbar_dropdown:hover .dropdown-menu {
-            display: block;
-        }
+    .scroll_list li:hover{
+        background-color: #dbdbdb;
     }
 
+
     @media (max-width: 980px){
+
+    }
         .navbar-languages.component_navbar_dropdown{
             padding-left: 0px;
             padding-right: 0px;
         }
 
         .navbar-dropdown__name{
-            font-size: 18px;
+            /* font-size: 18px; */
             justify-content: center;
         }
 
         .navbar-dropdown__item a{
-            font-size: 18px;
+            /* font-size: 18px; */
             text-align: center;
         }
         
         .navbar-dropdown{
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
+        }
+        
+        .wrap_list_box{
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .navbar-dropdown__container.dropdown-menu{
-            width: 100%;
+            width: auto;
+            position: absolute;
+            bottom: 35px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 5px;
+            border: 1px solid #00000026;
+            box-shadow: 0px 0px 25px 5px #d9d9d9;
+            height: 210px;
+            z-index: 2000;
         }
 
-        .dropdown-menu.show{
+        .scroll_list{
+            max-height: 210px;
+            overflow: auto;
+            margin-right: 3px;
+        }
+
+        .closePanel{
+            display: none;
+        }
+
+        .dropdown-menu.show, .closePanel.show{
             display: block;
         }
-    }
-
+    
+        .closePanel{
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            position: fixed;
+            z-index: 1000;
+        }
 </style>
 
 <script>
     $( window ).on( "load", async function(){
-        await $('.navbar-languages').clone().insertAfter($( ".t456__leftwrapper" ))
+        //await $('.navbar-languages').clone().insertAfter($( ".t456__leftwrapper" ))
         await $('.navbar-languages').clone().insertAfter($( '#rec869034567' ))
         $($('.navbar-languages')[2]).remove()
         init_languges()
@@ -184,12 +226,19 @@
             $(this).find('a').attr({'href':ref})
         })
 
+        $('.closePanel').on('click', function(){
+            event.stopPropagation();
+            $('.dropdown-menu').removeClass('show') 
+            $('.closePanel').removeClass('show')
+        })
+
         $('.navbar-dropdown').click( function(){
             if( $('.dropdown-menu').hasClass('show') ){
                 $('.dropdown-menu').removeClass('show')
+                $('.closePanel').removeClass('show')
             }else{
                 $('.dropdown-menu').addClass('show')
-                if( $(window).width() < 980 ){ window.scrollTo(0, document.body.scrollHeight)}
+                $('.closePanel').addClass('show')
             }
         })
         
