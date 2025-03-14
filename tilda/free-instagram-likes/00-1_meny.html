@@ -137,6 +137,7 @@
         
         .navbar-dropdown{
             width: 100%;
+            height: 100%;
         }
 
         .navbar-dropdown__container.dropdown-menu{
@@ -153,7 +154,7 @@
 <script>
     $( window ).on( "load", async function(){
         await $('.navbar-languages').clone().insertAfter($( ".t456__leftwrapper" ))
-        await $('.navbar-languages').clone().insertBefore($( ".t282__menu" ))
+        await $('.navbar-languages').clone().insertAfter($( '#rec869034567' ))
         $($('.navbar-languages')[2]).remove()
         init_languges()
     })
@@ -188,6 +189,7 @@
                 $('.dropdown-menu').removeClass('show')
             }else{
                 $('.dropdown-menu').addClass('show')
+                if( $(window).width() < 980 ){ window.scrollTo(0, document.body.scrollHeight)}
             }
         })
         
