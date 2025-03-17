@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
     roundCurrentAll()
     menuSameTab()
     goToReg()
+    init_lang_menu()
 })
 
 function get(name){
@@ -145,4 +146,12 @@ function initClasses(){
         $('#service-tbody tr [data-label]:nth-child(6)').addClass('data-label-OrderBtn') 
         
     }
+}
+
+function init_lang_menu(){
+    $('.navbar-languages').clone().insertAfter($('.component-footer__public'))
+    $($('.navbar-languages')[0]).remove()
+    $('.navbar-dropdown__container.dropdown-menu').wrap('<div class="wrap_list"></div>')
+    $('.navbar-dropdown__container.dropdown-menu>li').wrapAll('<div class="scroll_listt"></div>')
+    $('.navbar-languages').css({'display':'flex'})
 }
