@@ -1,0 +1,21 @@
+<!--    name_file: 08_free_user_control.html      -->
+<!--    discription:     -->
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded' ,  function(){
+        let free_user = localStorage.getItem('freeuser')
+        if(!free_user) reg_free_user()
+    })
+
+    function reg_free_user(){
+        $.ajax({
+        	url: `${base_url}/php/getFreeUser.php`,
+        	dataType: "json",
+        	success: function(data){
+        		localStorage.setItem('freeuser', data.name);
+        	}
+        });
+    }
+
+</script>
