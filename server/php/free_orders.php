@@ -53,6 +53,7 @@ $link = $_POST['link'];
 
 if($api_key != _APY_KEY_){ exit(); }
 include 'chekPermissionKey.php';
+include 'free_orders_check_freeuser.php';
 
 if(isset($_POST['url_page'])){
     $url = $_POST['url_page'];

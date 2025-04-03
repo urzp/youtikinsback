@@ -3,19 +3,23 @@
 
 <script>
     
-    document.addEventListener('DOMContentLoaded' ,  function(){
+    document.addEventListener('DOMContentLoaded' , async function(){
         let free_user = localStorage.getItem('freeuser')
-        if(!free_user) reg_free_user()
+        if(!free_user)  free_user = await reg_free_user()
+        $("[name='freeUser']").val(free_user)
     })
 
-    function reg_free_user(){
-        $.ajax({
+    async function reg_free_user(){
+        let result
+        await $.ajax({
         	url: `${base_url}/php/getFreeUser.php`,
         	dataType: "json",
         	success: function(data){
         		localStorage.setItem('freeuser', data.name);
+                result = data.name
         	}
         });
+        return result
     }
 
 </script>
