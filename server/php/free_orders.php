@@ -43,6 +43,9 @@ function findSameLink($pause, $link){
 //push_log(json_encode($_POST), basename(__FILE__), 'free_order_log');
 
 $pauseServis_hours = (int)$configs['pause_free_orders_h'];
+$pauseServis_hours_by_ip = (int)$configs['pause_free_orders_h_by_ip'];
+$limit_orders_by_ip = (int)$configs['limit_orders_by_ip'];
+$block_by_ip = $configs['block_by_ip'];
 $quantity_max = $configs['quantity_max_free_orderd'];
 $id_provider = $configs['provider_free_orders'];
 

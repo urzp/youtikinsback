@@ -10,9 +10,14 @@ function countOrdersHour($freeUserData){
 }
 
 //-----------------------------------------------------------------------------------------
-$limitOrdersInHour = 3;
-$blockHours = 1;
-$blockUser = true;
+$blockHours = $pauseServis_hours_by_ip;
+$limitOrdersInHour = $limit_orders_by_ip;
+$blockUser = $block_by_ip;
+
+$test['$blockHours']=$blockHours;
+$test['$limitOrdersInHour']=$limitOrdersInHour;
+$test['$blockUser']=$blockUser;
+push_log(json_encode($test), basename(__FILE__), 'free_order_log');
 
 $mysql_main = $mysql;
 include 'config_timer.php';
