@@ -1,0 +1,25 @@
+<!--    name_file: 08_free_user_control.html      -->
+<!--    discription:     -->
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded' , async function(){
+        let free_user = localStorage.getItem('freeuser')
+        if(!free_user)  free_user = await reg_free_user()
+        $("[name='freeUser']").val(free_user)
+    })
+
+    async function reg_free_user(){
+        let result
+        await $.ajax({
+        	url: `${base_url}/php/getFreeUser.php`,
+        	dataType: "json",
+        	success: function(data){
+        		localStorage.setItem('freeuser', data.name);
+                result = data.name
+        	}
+        });
+        return result
+    }
+
+</script>

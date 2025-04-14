@@ -75,6 +75,11 @@
         text-align: center!important;
     }
 
+    .component-footer__public{
+        padding-top: 15px!important;
+        padding-bottom: 0px!important;
+    }
+
 }
 
 
