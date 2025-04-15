@@ -37,7 +37,7 @@ if (curl_errno($ch)) {
         echo 'Ошибка API: ' . $data['error-type'];
     } else {
         foreach($data['quotes'] as $key => $item){
-            $key = str_replace('RUB','', $key);
+            $key = str_replace('USD','', $key);
             //echo $key.' : '.$item.'</br>';
             $sql = "SELECT name FROM `currency` WHERE `name`='$key' ";
             $sql_result = $mysql -> query($sql);
