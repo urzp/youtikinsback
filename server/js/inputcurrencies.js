@@ -52,7 +52,7 @@ function initInput(){
     })
     $('#amount-currency').on('change', function(){
         //let min_currency =  fx(minAmount).from("RUB").to(userCurrency)
-        let min_currency =  Number( (minAmount * dataExchange[userCurrency]).toFixed(2) )
+        let min_currency =  Number( (minAmount / dataExchange[userCurrency]).toFixed(2) )
         //if( $(this).val() < min_currency ) { $(this).val(min_currency); $('#amount').val(minAmount) }   
         $('#amount-currency').attr( {min: min_currency} )
     })
