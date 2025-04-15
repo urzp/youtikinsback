@@ -129,3 +129,11 @@
 #service-tbody:not(.rended){
     visibility: hidden;
 }
+
+#amount-converted{
+    display: none!important;
+}
+
+#amount-converted-icon{
+    display: none!important;
+}

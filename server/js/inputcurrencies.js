@@ -3,7 +3,6 @@ let userSymbol
 let dataExchange
 
 document.addEventListener('DOMContentLoaded',  function(){
-    return false //off the script
     getDataExchange()
     userCurrency = getUserCurrency()
     initInput() //converter in input
