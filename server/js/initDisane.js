@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
     menuSameTab()
     goToReg()
     init_lang_menu()
+    $('.sidebar-block__left-menu  [target="_blank"]').attr({'target':''})
 })
 
 function get(name){
