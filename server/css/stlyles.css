@@ -1,5 +1,5 @@
 .navbar-languages.component_navbar_dropdown{
-    display: none;
+    display: none!important;
     justify-content: center;
     background-color: #f0f6fb;
 }
