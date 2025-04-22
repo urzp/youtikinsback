@@ -44,9 +44,8 @@ function selectFilter(){
 
     let last_selector = localStorage.getItem('data-filter-category-id')
     if(!!last_selector){
-        localStorage.clear('data-filter-category-id')
         $(`[data-filter-category-id="${last_selector}"]`).click()
-
+        localStorage.setItem('data-filter-category-id', '')
     }
 }
 
