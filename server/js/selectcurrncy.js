@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         $('.balance-dropdown__item').click(userSelected)
         if(localStorage.getItem('userCurrency')!='yes') getCurrency()
+        selectFilter()
         //getCurrency()
     }
 });
@@ -35,5 +36,19 @@ function alertData(lan, curr, find_curr, user){
         user set: ${user}
     `)
 }
+
+function selectFilter(){
+    $('[data-filter-category-id]').click(function(){
+        localStorage.setItem('data-filter-category-id', $(this).attr('data-filter-category-id') )
+    })
+
+    let last_selector = localStorage.getItem('data-filter-category-id')
+    if(!!last_selector){
+        localStorage.clear('data-filter-category-id')
+        $(`[data-filter-category-id="${last_selector}"]`).click()
+
+    }
+}
+
     
 
