@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
         
         $('.balance-dropdown__item').click(userSelected)
         if(localStorage.getItem('userCurrency')!='yes') getCurrency()
-        setTimeout( selectFilter, 300)
+        setTimeout( userSelectFilter, 300)
+        setTimeout( userSelectCurrency(), 300)
         //getCurrency()
     }
 });
@@ -37,7 +38,7 @@ function alertData(lan, curr, find_curr, user){
     `)
 }
 
-function selectFilter(){
+function userSelectFilter(){
     $('[data-filter-category-id]').click(function(){
         localStorage.setItem('data-filter-category-id', $(this).attr('data-filter-category-id') )
     })
@@ -45,7 +46,19 @@ function selectFilter(){
     let last_selector = localStorage.getItem('data-filter-category-id')
     if(!!last_selector){
         $(`[data-filter-category-id="${last_selector}"]`).click()
-        localStorage.setItem('data-filter-category-id', '')
+        localStorage.removeItem('data-filter-category-id')
+    }
+}
+
+function userSelectCurrency(){
+    $('#currencies-list [data-rate-key]').click(function(){
+        if(!isLogin()){ localStorage.setItem('firest-data-rate-key', $(this).attr('data-rate-key') ) }
+    })
+
+    let first_selector_currncy = localStorage.getItem('firest-data-rate-key')
+    if(!!first_selector_currncy&&isLogin()){
+        $(`[data-rate-key="${first_selector_currncy}"]`).click()
+        localStorage.removeItem('firest-data-rate-key')
     }
 }
 
