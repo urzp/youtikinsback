@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){ 
     $('<div id="filter-56-title">SELECT</div>').insertAfter( '#dropdown-category-filter-56 .fal.fa-filter' )
+    let last_selector = localStorage.getItem('data-filter-category-id')
     if(!last_selector){
         $('#dropdown-category-filter-56').click() 
     } 
