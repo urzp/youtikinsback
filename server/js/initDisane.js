@@ -107,7 +107,7 @@ function goToReg(){
 }
 
 function isLogin(){
-    if( $(`.component-navbar-nav-link__navbar-private:contains("Logout")`).length > 0 ){
+    if( $(`[href="/logout"]`).length > 0 ){
         return true
     }else{
         return false
