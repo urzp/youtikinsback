@@ -1,5 +1,7 @@
 <?php
 
+//https://currencylayer.com/
+
 //$req = 'https://v6.exchangerate-api.com/v6/e0c6921cbbf48c421b36e38c/latest/USD';
 $mysql = new mysqli('localhost','ruslarjn_timer','BI7XqM*M0rYd','ruslarjn_timer');
 
