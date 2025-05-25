@@ -46,11 +46,12 @@ function headerRatePer(){
 
 async function roundCurrentAll(){
     let select 
-    if($('[data-label="Rate per 1000"] span').length==0){
-        select = $('[data-label="Rate per 1000"]')
-    }else{
-        select = $('[data-label="Rate per 1000"] span')
-    }
+    // if($('[data-label="Rate per 1000"] span').length==0){
+    //     select = $('[data-label="Rate per 1000"]')
+    // }else{
+    //     select = $('[data-label="Rate per 1000"] span')
+    // }
+    select = $('.data-label-Rate')
     
     await select.each(function(){
         let val = roundCurrent( $(this).text() )
