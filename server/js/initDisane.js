@@ -167,7 +167,6 @@ function init_lang_menu(){
 
 function initLangButtonSelector(){
     let textButton = textButtonLang[$("html").attr("lang")]
-    if(!textButton==''){
-        $('#filter-56-title').text(textButton)
-    }
+    if(!textButton[0]=='') $('#filter-56-title').text(textButton[0])
+    if(!textButton[1]=='') $('.nowrap.header-label-Rate').text(textButton[1])
 }
