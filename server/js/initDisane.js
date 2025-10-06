@@ -162,6 +162,12 @@ function init_lang_menu(){
     $('.navbar-dropdown__container.dropdown-menu').wrap('<div class="wrap_list"></div>')
     $('.navbar-dropdown__container.dropdown-menu>li').wrapAll('<div class="scroll_listt"></div>')
     $('.navbar-languages').css({'display':'flex'})
+    initLangButtonSelector()
+}
 
-
+function initLangButtonSelector(){
+    let textButton = textButtonLang[$("html").attr("lang")]
+    if(!textButton==''){
+        $('#filter-56-title').text(textButton)
+    }
 }
