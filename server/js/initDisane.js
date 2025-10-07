@@ -163,10 +163,20 @@ function init_lang_menu(){
     $('.navbar-dropdown__container.dropdown-menu>li').wrapAll('<div class="scroll_listt"></div>')
     $('.navbar-languages').css({'display':'flex'})
     initLangButtonSelector()
+    initLinksLanguages()
 }
 
 function initLangButtonSelector(){
     let textButton = textButtonLang[$("html").attr("lang")]
-    if(!textButton[0]=='') $('#filter-56-title').text(textButton[0])
+    if(!textButton[0]=='') $('#filter-56-title').text(textButton[0].toUpperCase())
     if(!textButton[1]=='') $('.nowrap.header-label-Rate').text(textButton[1])
+}
+
+function initLinksLanguages(){
+    let linkWordLang = linksWordLang[$("html").attr("lang")]
+    if(!linkWordLang==''){
+        $('[href="https://youtikins.com/en"]').attr({'href':'https://youtikins.com/'+linkWordLang})
+        $('[href="https://youtikins.com/en/reviews"]').attr({'href':'https://youtikins.com/'+linkWordLang+'/reviews'})
+    }
+    
 }

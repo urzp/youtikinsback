@@ -1,0 +1,62 @@
+<script>
+    let linksWordLang = {
+        es:'es',
+        bp:'pt',
+        'pt-BR':'pt',
+        fr:'fr',
+        ar:'ar',        
+    }
+
+    let textButtonLang = {
+        es:['Elegir servicio', 'Tarifa por 1'],
+        bp:['Escolher o serviço', 'Preço por 1'],
+        'pt-BR':['Escolher o serviço', 'Preço por 1'],
+        fr:['Sélectionnez service', 'Prix pour 1'],
+        ar:['اختيار الخدمات','السعر لكل 1'],
+
+    }
+
+    let currencies = {  //for init selected currencies 
+        ru: 'RUB',
+        en: 'EUR',
+        bp: 'BRL',
+        ar: 'EGP',
+        es: 'EUR',
+        fr: 'EUR',
+        de: 'EUR',
+        id: 'USD',
+        hi: 'USD',
+    }
+
+    let currencies_symbols = [  //for convert currencies to RUB 
+        'RUB ₽',
+        'USD $',
+        'BRL R$',
+        'EGP EGP',
+        'EUR €',
+        'GBP £',
+        'IDR Rp',
+        'INR ₹',
+        'JPY ¥',
+        'MXN $',
+        'MYR RM',
+        'SAR ر.س',
+        'THB ฿',
+        'UAH ₴',
+        'UZS сум', 
+    ]
+
+    let jivosite_forbidan_pages = [
+        'test',
+        'test2'
+    ]
+
+    let minAmount = 1 //min USD
+</script>
+
+
+<style>
+    .navbar-dropdown__link:hover{
+        color: #333!important;
+    }
+</style>
