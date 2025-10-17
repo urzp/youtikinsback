@@ -175,6 +175,7 @@ function initLangButtonSelector(){
 function initLinksLanguages(){
     let linkWordLang = linksWordLang[$("html").attr("lang")]
     if(!linkWordLang==''){
+        $('.sidebar-block__top-brand [target="_self"]').attr({'href': 'https://youtikins.com/'+linkWordLang})
         $('[href="https://youtikins.com/en"]').attr({'href':'https://youtikins.com/'+linkWordLang})
         $('[href="https://youtikins.com/en/reviews"]').attr({'href':'https://youtikins.com/'+linkWordLang+'/reviews'})
     }
