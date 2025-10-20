@@ -62,13 +62,14 @@ function initInput(){
 
 function initInstructionText(){
     let idInteval = setInterval(function(){
-        let text = $('.panel-body.border-solid.border-rounded.text-center').text()
+        let text = $('.panel-body.border-solid.border-rounded.text-center').html()
         if(!!text && !!dataExchange && !!dataExchange[userCurrency]){
             clearInterval(idInteval)
-                if(text.split('Min: ').length > 1){
+                if(text.split('min_value').length > 1){
                 let min_currency =  Number( (minAmount * dataExchange[userCurrency]).toFixed(2) )
-                text = 'Min: ' + min_currency + ' ' + userCurrency + text.split('Min: ')[1]
-                $('.panel-body.border-solid.border-rounded.text-center').text(text)
+                text = text.replace('min_value', min_currency + ' ' + userCurrency )
+                //text = 'Min: ' + min_currency + ' ' + userCurrency + text.split('Min: ')[1]
+                $('.panel-body.border-solid.border-rounded.text-center').html(text)
             }
         }
     }, 200)
