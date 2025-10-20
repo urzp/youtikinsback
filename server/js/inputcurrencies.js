@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded',  function(){
     userCurrency = getUserCurrency()
     initInput() //converter in input
     setTitle()
+    initInstructionText()
 })
 
 function getDataExchange(){
@@ -52,8 +53,23 @@ function initInput(){
     })
     $('#amount-currency').on('change', function(){
         //let min_currency =  fx(minAmount).from("RUB").to(userCurrency)
-        let min_currency =  Number( (minAmount / dataExchange[userCurrency]).toFixed(2) )
+        let min_currency =  Number( (minAmount * dataExchange[userCurrency]).toFixed(2) )
         //if( $(this).val() < min_currency ) { $(this).val(min_currency); $('#amount').val(minAmount) }   
         $('#amount-currency').attr( {min: min_currency} )
     })
+
+}
+
+function initInstructionText(){
+    let idInteval = setInterval(function(){
+        let text = $('.panel-body.border-solid.border-rounded.text-center').text()
+        if(!!text && !!dataExchange && !!dataExchange[userCurrency]){
+            clearInterval(idInteval)
+                if(text.split('Min: ').length > 1){
+                let min_currency =  Number( (minAmount * dataExchange[userCurrency]).toFixed(2) )
+                text = 'Min: ' + min_currency + ' ' + userCurrency + text.split('Min: ')[1]
+                $('.panel-body.border-solid.border-rounded.text-center').text(text)
+            }
+        }
+    }, 200)
 }
