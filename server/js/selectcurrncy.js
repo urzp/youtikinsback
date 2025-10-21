@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
         $('.balance-dropdown__item').click(userSelected)
         if(localStorage.getItem('userCurrency')!='yes') getCurrency()
         setTimeout( userSelectFilter, 300)
-        setTimeout( userSelectCurrency(), 300)
+        //setTimeout( userSelectCurrency(), 300)
         //getCurrency()
     }
 });

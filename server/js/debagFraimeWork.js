@@ -6,6 +6,7 @@ function debagLinkOrderLanguges(){
             let servisId = $(this).attr('data-service-id')
             $("#createQuickOrder").on('click', function(){
                 let lang = urlLang[$("html").attr("lang")]
+                if(!lang) lang = 'en'
                 let url = `https://user.youtikins.com/${lang}/signup?service=${servisId}`
                 window.location.href = url;
             })
