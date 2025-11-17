@@ -1,14 +1,12 @@
 <?php
 
-//https://currencylayer.com/
-
 //$req = 'https://v6.exchangerate-api.com/v6/e0c6921cbbf48c421b36e38c/latest/USD';
 $mysql = new mysqli('localhost','ruslarjn_timer','BI7XqM*M0rYd','ruslarjn_timer');
 
 // Ваш API ключ
-$apiKey = '713562e12866cf7e8686694048160b43'; // Замените YOUR_API_KEY на ваш реальный ключ
+$apiKey = 'a79019e376079d4eeaa5078ead0a27eb';//'713562e12866cf7e8686694048160b43'; // Замените YOUR_API_KEY на ваш реальный ключ
 $baseCurrency = 'USD'; // Базовая валюта для обмена
-$currencies = 'RUB,AED,AOA,AZN,BDT,BRL,CLP,CNY,CZK,DKK,EGP,EUR,GBP,GHS,HUF,IDR,ILS,INR,IQD,JPY,KES,KRW,KWD,LAK,LYD,MAD,MXN,MYR,MZN,NGN,NOK,NPR,OMR,PEN,PGK,PHP,PKR,RWF,SAR,SDG,SEK,SYP,THB,TND,TRY,TWD,TZS,UAH,UGX,USD,UZS,VND,XAF,XOF,YER,ZAR';
+$currencies = 'RUB,AED,AOA,AZN,BDT,BRL,CLP,CNY,CZK,DKK,EGP,EUR,GBP,GHS,HUF,IDR,ILS,INR,IQD,JOD,JPY,KES,KRW,KWD,LAK,LYD,MAD,MXN,MYR,MZN,NGN,NOK,NPR,OMR,PEN,PGK,PHP,PKR,RWF,SAR,SDG,SEK,SYP,THB,TND,TRY,TWD,TZS,UAH,UGX,USD,UZS,VND,XAF,XOF,YER,ZAR';
 
 // URL API
 $url = "http://apilayer.net/api/live?access_key=$apiKey&%20currencies=$currencies&%20source=$baseCurrency&%20format=1";

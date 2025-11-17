@@ -5,64 +5,81 @@
         'pt-BR':'pt',
         fr:'fr',
         ar:'ar',        
+        ru:'ru',    
     }
-
+ 
     let urlLang = {
         es:'es',
         bp:'bp',
         'pt-BR':'bp',
         fr:'fr',
         ar:'ar',        
+        ru:'ru',       
     }
-
+ 
     let textButtonLang = {
         es:['Elegir servicio', 'Tarifa por 1'],
         bp:['Escolher o serviço', 'Preço por 1'],
         'pt-BR':['Escolher o serviço', 'Preço por 1'],
         fr:['Sélectionnez service', 'Prix pour 1'],
         ar:['اختيار الخدمات','السعر لكل 1'],
-
+        ru:['Выберите услугу', 'Цена за 1 шт'],
+ 
     }
-
+ 
+   let setSelectCurrancy = false
+ 
     let currencies = {  //for init selected currencies 
         ru: 'RUB',
-        en: 'EUR',
+        en: 'USD',
         bp: 'BRL',
         ar: 'EGP',
-        es: 'EUR',
+        es: 'MXN',
         fr: 'EUR',
         de: 'EUR',
         id: 'USD',
         hi: 'USD',
     }
-
+ 
     let currencies_symbols = [  //for convert currencies to RUB 
-        'RUB ₽',
-        'USD $',
-        'BRL R$',
-        'EGP EGP',
-        'EUR €',
-        'GBP £',
-        'IDR Rp',
-        'INR ₹',
-        'JPY ¥',
-        'MXN $',
-        'MYR RM',
-        'SAR ر.س',
-        'THB ฿',
-        'UAH ₴',
-        'UZS сум', 
+'RUB ₽',
+'USD $',
+'BRL R$',
+'EGP EGP',
+'EUR €',
+'GBP £',
+'INR ₹',
+'JPY ¥',
+'MXN $',
+'MYR RM',
+'SAR ر.س',
+'AED دإ',
+'AOA Kz',
+'BDT ৳',
+'CLP $',
+'JOD JD',
+'KES KSh',
+'KWD KD',
+'MAD DH',
+'MZN MT',
+'NGN ₦',
+'NOK kr',
+'OMR OMR',
+'PEN S/',
+'PKR Rs',
+'SEK kr',
+'TND TND',
+'ZAR R',
     ]
-
+ 
     let jivosite_forbidan_pages = [
         'test',
         'test2'
     ]
-
-    let minAmount = 1 //min USD
+ 
+    let minAmount = 1.2 //min USD
 </script>
-
-
+ 
 <style>
     .navbar-dropdown__link:hover{
         color: #333!important;
