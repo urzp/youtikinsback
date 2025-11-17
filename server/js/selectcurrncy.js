@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', function(){
     window.onload = function() { 
         
         $('.balance-dropdown__item').click(userSelected)
-        if(localStorage.getItem('userCurrency')!='yes') getCurrency()
+        //if(localStorage.getItem('userCurrency')!='yes') getCurrency()
+        getCurrency()
         setTimeout( userSelectFilter, 300)
-        //setTimeout( userSelectCurrency(), 300)
-        //getCurrency()
+        setTimeout( userSelectCurrency(), 300)
+        
     }
 });
 
@@ -18,10 +19,25 @@ async function  getCurrency(){
 function selectCurrency(lang){
     let code = currencies[lang]
     let f_curr = 'no find'
-    $('.balance-dropdown__container #currencies-item').each(function(){
+    if(!!setSelectCurrancy){
+            $('.balance-dropdown__container #currencies-item').each(function(){
         if( $(this).text().includes(code) ){ f_curr=$(this).text(); setTimeout( ()=>{$(this).click()} , 500 ) }
         localStorage.setItem('userCurrency', 'no')
     })
+    }
+    let first_selector_currncy = localStorage.getItem('firest-data-rate-key')
+    if(!isLogin()&&!first_selector_currncy){
+        let idinterval = setInterval(()=>{
+            if($(`[data-rate-key="${code}"]`).length > 0){
+                $(`[data-rate-key="${code}"]`).click()
+                console.log($(`[data-rate-key="${code}"]`))
+                clearInterval(idinterval)
+            }
+            
+        },500)
+        
+    }
+        
     //alertData(lang, code, f_curr, localStorage.getItem('userCurrency') )
 }
 
@@ -56,7 +72,7 @@ function userSelectCurrency(){
     })
 
     let first_selector_currncy = localStorage.getItem('firest-data-rate-key')
-    if(!!first_selector_currncy&&isLogin()){
+    if(!!first_selector_currncy&&isLogin()&&!!setSelectCurrancy){
         $(`[data-rate-key="${first_selector_currncy}"]`).click()
         localStorage.removeItem('firest-data-rate-key')
     }

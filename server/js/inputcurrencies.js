@@ -31,6 +31,8 @@ function getUserCurrency(){
             let sumbol_curr_same_usd = item.split(' ')[0]
             if($('#currencies-list li').find(`[data-rate-key="${sumbol_curr_same_usd}"]`).length==0) currency = sumbol_curr_same_usd
         })
+        symbol = symbol.replace('≈','')
+        userSymbol = symbol
     }else{
         symbol = symbol.replace('≈','')
         userSymbol = symbol
