@@ -63,6 +63,7 @@ async function roundCurrentAll(){
 }
 
 function devide(val, dev){
+    val = val.replace('/', '')
     let rec = /[0-9/,]+/
     let result = Number((val.match(rec)[0]).replace(',','.'))/dev
     result = result.toString().replace('.',',')

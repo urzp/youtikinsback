@@ -22,11 +22,20 @@ function getDataExchange(){
 }
 
 function getUserCurrency(){
+    let currency = 'USD'
     let symbol = $('.balance-dropdown__name').text().replace(/[0-9]/g, '')
     symbol = symbol.replace(/[\s.,%]/g, '')
-    symbol = symbol.replace('≈','')
-    userSymbol = symbol
-    let currency = currencies_symbols.find(item=>item.includes(symbol)).split(' ')[0]
+    if(symbol=='≈$'){
+        let sumbols_curr_same_usd = currencies_symbols.filter(item => item.includes(' $'))
+        sumbols_curr_same_usd.forEach(item=>{
+            let sumbol_curr_same_usd = item.split(' ')[0]
+            if($('#currencies-list li').find(`[data-rate-key="${sumbol_curr_same_usd}"]`).length==0) currency = sumbol_curr_same_usd
+        })
+    }else{
+        symbol = symbol.replace('≈','')
+        userSymbol = symbol
+        currency = currencies_symbols.find(item=>item.includes(symbol)).split(' ')[0]
+    }
     return currency
 }
 
