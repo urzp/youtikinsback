@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded',  function(){
     initInput() //converter in input
     setTitle()
     initInstructionText()
+    $('#method').change(function(){
+        initInstructionText()
+    })
 })
 
 function getDataExchange(){
