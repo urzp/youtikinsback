@@ -123,8 +123,11 @@
 
     async function sendPlay(sessionToken){
         let url = `${base_url}/php/playwheel.php`
+        let page = window.location.href.split('/')
+        page = page[page.length - 1]
         content = {
-            sessionToken
+            sessionToken,
+            page,
         }
         let options = {
             type: 'POST',
