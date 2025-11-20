@@ -32,7 +32,7 @@ if($probability_winning!=0){
     $number_events_of_winning = $number_events_of_winning  * 100;
     $play_result = rand(0, $number_events_of_winning);
 }else{
-    $play_result = 2;
+    $play_result = 200;
 }
 
 $test = $play_result;
@@ -53,7 +53,7 @@ if($data['wheel']==0){
 $result = (object) [
     'success' => true,
     'data' => $data,
-    'test' => $test,
+    //'test' => $test,
 ];
 
 echo json_encode($result);
