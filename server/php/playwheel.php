@@ -46,7 +46,7 @@ if($play_result<=100){
 if($data['wheel']==0){
     include 'config_timer.php';
     $selector = "`sessionToken`='$sessionToken'";
-    $result = crud_read('freeOrdersTimer','',$selector);
+    $result = crud_read('freeOrdersTimer_youtikin','',$selector);
     $data['permissionKey'] = $result[0]['permissionKey'];
 }
 
