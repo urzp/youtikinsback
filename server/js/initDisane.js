@@ -181,6 +181,11 @@ function initLinksLanguages(){
         $('.sidebar-block__top-brand [target="_self"]').attr({'href': 'https://youtikins.com/'+linkWordLang})
         $('[href="https://youtikins.com/en"]').attr({'href':'https://youtikins.com/'+linkWordLang})
         $('[href="https://youtikins.com/en/reviews"]').attr({'href':'https://youtikins.com/'+linkWordLang+'/reviews'})
+        $('[href="https://youtikins.com/"]').attr({'href':'https://youtikins.com/'+linkWordLang})
+        $('[href="https://youtikins.com/main1"]').attr({'href':('https://youtikins.com/'+(linkWordLang=='en'?'':linkWordLang))})
+        $('[href="https://youtikins.com/contacts"]').attr({'href':'https://youtikins.com/'+linkWordLang+'/contacts/'})
+        if(linkWordLang!='en'&&linkWordLang!='es'){
+            $('[href="https://youtikins.com/en/"]').attr({'href':'https://user.youtikins.com/'+linkWordLang})
+        }
     }
-    
 }
