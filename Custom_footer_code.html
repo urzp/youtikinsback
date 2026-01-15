@@ -46,39 +46,66 @@
     }
  
     let currencies_symbols = [  //for convert currencies to RUB 
-'RUB ₽',
-'USD $',
-'BRL R$',
-'EGP EGP',
-'EUR €',
-'GBP £',
-'INR ₹',
-'JPY ¥',
-'MXN $',
-'MYR RM',
-'SAR ر.س',
-'AED دإ',
-'AOA Kz',
-'BDT ৳',
-'CLP $',
-'JOD JD',
-'KES KSh',
-'KWD KD',
-'MAD DH',
-'MZN MT',
-'NGN ₦',
-'NOK kr',
-'OMR OMR',
-'PEN S/',
-'PKR Rs',
-'SEK kr',
-'TND TND',
-'ZAR R',
+        'RUB ₽',
+        'USD $',
+        'BRL R$',
+        'EGP EGP',
+        'EUR €',
+        'GBP £',
+        'INR ₹',
+        'JPY ¥',
+        'MXN $',
+        'MYR RM',
+        'SAR ر.س',
+        'AED دإ',
+        'AOA Kz',
+        'BDT ৳',
+        'CLP $',
+        'JOD JD',
+        'KES KSh',
+        'KWD KD',
+        'MAD DH',
+        'MZN MT',
+        'NGN ₦',
+        'NOK kr',
+        'OMR OMR',
+        'PEN S/',
+        'PKR Rs',
+        'SEK kr',
+        'TND TND',
+        'ZAR R',
     ]
  
     let minAmount = 1.2 //min USD
+
+    // nav_menu free servis
+
+    let nav_menu_free_servis = {}
+
+    nav_menu_free_servis.en = [
+        {name:'Instagram free followers', link:'https://youtikins.com/en/free-instagram-followers'},
+        {name:'Instagram free likes', link:'https://youtikins.com/en/free-instagram-followers'},
+
+    ]
+        
+    
+
 </script>
  
+
+
+<!-- hover menu -->
+
+<div class="hover_menu" style="position: fixed; left:300px; top:50px; display:block;">
+    <div class="arrow_menu"></div>
+    <div class="content_hover_menu">
+        <ul class="list_content_hover_menu" style="width: 230px;background-color:#f0f6fb;">
+            <li class="hover_menu-item"> <div class="hover_menu-link-wrapper"> <a class="hover_menu-item-link" role="menuitem" href="https://youtikins.com/en/free-instagram-followers" data-menu-submenu-hook="" style="color:#023d5e;font-size:16px;font-weight:400;font-family:'Roboto';justify-content:flex-start;"> <span class="">Instagram free followers</span> </a> </div> </li>
+        </ul>
+    </div>
+</div>
+
+
 <style>
     .navbar-dropdown__link:hover{
         color: #333!important;
