@@ -201,3 +201,14 @@ function addHoverMenu(){
     });
     $('.hover_menu').css({display:'block'})
 }
+
+function getX_MiddleElement(selector){
+    if(!$(selector)) return 0
+    let x_pos = $(selector).position().left
+    return  x_pos + $(selector).width() / 2
+}
+
+function setX_MiddleElement(selector, x_pos){
+    if(!$(selector)) return false
+    
+}
