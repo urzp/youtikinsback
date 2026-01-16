@@ -189,3 +189,15 @@ function initLinksLanguages(){
         }
     }
 }
+
+function addHoverMenu(){
+    let linkWordLang = linksWordLang[$("html").attr("lang")]
+    let list = nav_menu_free_servis[linkWordLang]
+
+    list.forEach(item => {
+        let style = "color:#023d5e;font-size:16px;font-weight:400;font-family:'Roboto';justify-content:flex-start;"
+        let item_html=`<li class="hover_menu-item"> <div class="hover_menu-link-wrapper"> <a class="hover_menu-item-link" role="menuitem" href="${item.link}" data-menu-submenu-hook="" style="${style}"> <span class="">${item.name}</span> </a> </div> </li>`
+        $('.list_content_hover_menu').append( item_html );
+    });
+    $('.hover_menu').css({display:'block'})
+}

@@ -141,3 +141,43 @@
 #amount_label_currency{
     display: none!important;
 }
+
+    .hover_menu{
+        max-width: calc(320px + 230px);
+        border-radius: 10px;
+        background-color: #f0f6fb;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, .2);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .arrow_menu{
+        position: relative;
+        background-color: #f0f6fb;
+        top: -6.5px;
+        left: 100px;
+        border-color: #eee;
+        border-width: 0;
+        border-style: none;
+        width: 15px;
+        aspect-ratio: 1;
+        transform: rotate(45deg);
+    }
+
+    .content_hover_menu{
+        background-color: #f0f6fb;
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+        overflow: hidden;
+        max-height: 100%;
+        box-sizing: border-box;
+    }
+
+    .list_content_hover_menu{
+        padding-left: 25px;
+    }
+
+    .content_hover_menu li{
+        list-style-type: none;
+    }
