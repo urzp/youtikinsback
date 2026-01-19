@@ -199,7 +199,10 @@ function addHoverMenu(){
         let item_html=`<li class="hover_menu-item"> <div class="hover_menu-link-wrapper"> <a class="hover_menu-item-link" role="menuitem" href="${item.link}" data-menu-submenu-hook="" style="${style}"> <span class="">${item.name}</span> </a> </div> </li>`
         $('.list_content_hover_menu').append( item_html );
     });
-    $('.hover_menu').css({display:'block'})
+
+    //$('.hover_menu').css({display:'block'})// for test
+    menu_adjast_x_position('.hover_menu',1)
+    hover_effect('.hover_menu',1)
 }
 
 function getX_MiddleElement(selector){
@@ -210,5 +213,24 @@ function getX_MiddleElement(selector){
 
 function setX_MiddleElement(selector, x_pos){
     if(!$(selector)) return false
+    let x_middle = $(selector).width() / 2
+    x_pos = x_pos - x_middle
+    $(selector).css({left:`${x_pos}px`})
+}
+
+function menu_adjast_x_position(hover_menu_selector, number_menu){
+    let x = getX_MiddleElement($('.navbar-nav li')[number_menu])
+    setX_MiddleElement(hover_menu_selector,x)
+}
+
+function hover_effect(hover_menu_selector, number_menu){
+    $($('.navbar-nav li')[number_menu]).hover(()=>{
+        $(hover_menu_selector).fadeIn()
+    },
+    ()=>{})
     
+    $(hover_menu_selector).hover( 
+        ()=>{},
+        ()=>{ $(hover_menu_selector).css({display:'none'})}
+    )
 }
