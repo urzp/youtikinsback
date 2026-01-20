@@ -201,8 +201,9 @@ function addHoverMenu(){
     });
 
     //$('.hover_menu').css({display:'block'})// for test
-    menu_adjast_x_position('.hover_menu',1)
-    hover_effect('.hover_menu',1)
+    $('.hover_menu_wrap').css({top: '25px'})
+    menu_adjast_x_position('.hover_menu_wrap',1)
+    hover_effect('.hover_menu_wrap',1)
 }
 
 function getX_MiddleElement(selector){
@@ -225,6 +226,7 @@ function menu_adjast_x_position(hover_menu_selector, number_menu){
 
 function hover_effect(hover_menu_selector, number_menu){
     $($('.navbar-nav li')[number_menu]).hover(()=>{
+        menu_adjast_x_position(hover_menu_selector,number_menu)
         $(hover_menu_selector).fadeIn()
     },
     ()=>{})
@@ -233,4 +235,7 @@ function hover_effect(hover_menu_selector, number_menu){
         ()=>{},
         ()=>{ $(hover_menu_selector).css({display:'none'})}
     )
+
+    $(window).resize(()=>{menu_adjast_x_position(hover_menu_selector,1)})
+    $('body').click(()=>{$(hover_menu_selector).css({display:'none'})})
 }

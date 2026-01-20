@@ -148,6 +148,9 @@
         background-color: #f0f6fb;
         box-shadow: 0 0 7px 0 rgba(0, 0, 0, .2);
         -webkit-font-smoothing: antialiased;
+        top: 25px;
+        z-index: 1000;
+        margin-top: 55px;
     }
 
     .arrow_menu{
