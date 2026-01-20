@@ -204,7 +204,14 @@ function addHoverMenu(){
     //$('.hover_menu').css({display:'block'})// for test
     $('.hover_menu_wrap').css({top: '25px'})
     menu_adjast_x_position('.hover_menu_wrap',1)
+    menu_adjast_y_position('.hover_menu_wrap',1)
     hover_effect('.hover_menu_wrap',1)
+    click_effect('.hover_menu_wrap',1)
+    stop_link(1)
+}
+
+function stop_link(number_menu){
+    $( $('.navbar-nav li')[number_menu]).on("click", function (e) { e.preventDefault(); }); 
 }
 
 function getX_MiddleElement(selector){
@@ -225,18 +232,43 @@ function menu_adjast_x_position(hover_menu_selector, number_menu){
     setX_MiddleElement(hover_menu_selector,x)
 }
 
+function menu_adjast_y_position(hover_menu_selector, number_menu){
+    if($(window).width() > 980) return false
+    let y = $($('.navbar-nav li')[number_menu]).position().top
+    let h = $($('.navbar-nav li')[number_menu]).height()
+    y = h + y + 10
+    $(hover_menu_selector).css({top:`${y}px`})
+}
+
 function hover_effect(hover_menu_selector, number_menu){
     $($('.navbar-nav li')[number_menu]).hover(()=>{
+        if($(window).width() <= 980) return false
         menu_adjast_x_position(hover_menu_selector,number_menu)
+        menu_adjast_y_position(hover_menu_selector,number_menu)
         $(hover_menu_selector).fadeIn()
     },
     ()=>{})
     
     $(hover_menu_selector).hover( 
         ()=>{},
-        ()=>{ $(hover_menu_selector).css({display:'none'})}
+        ()=>{ 
+            if($(window).width() <= 980) return false
+            $(hover_menu_selector).css({display:'none'})
+        }
     )
 
     $(window).resize(()=>{menu_adjast_x_position(hover_menu_selector,1)})
-    $('body').click(()=>{$(hover_menu_selector).css({display:'none'})})
+    $('body').click(()=>{
+        if($(hover_menu_selector).css('display') == 'block' ) $(hover_menu_selector).css({display:'none'})  
+    })
+}
+
+function click_effect(hover_menu_selector, number_menu){
+    $($('.navbar-nav li')[number_menu]).click( "click", function( event ){
+        event.stopPropagation();
+        if($(window).width() > 980) return false
+        menu_adjast_x_position(hover_menu_selector,number_menu)
+        menu_adjast_y_position(hover_menu_selector,number_menu)
+        $(hover_menu_selector).fadeIn()
+    })
 }
