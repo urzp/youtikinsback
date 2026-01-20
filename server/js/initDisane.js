@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
     init_lang_menu()
     $('.sidebar-block__left-menu  [target="_blank"]').attr({'target':''})
     debagLinkOrderLanguges()
+    addHoverMenu()
 })
 
 function get(name){
