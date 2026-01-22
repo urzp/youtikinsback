@@ -182,7 +182,9 @@
     }
 
     .list_content_hover_menu{
+        width: max-content;
         padding-left: 25px;
+        padding-right: 25px;
     }
 
     .content_hover_menu li{
